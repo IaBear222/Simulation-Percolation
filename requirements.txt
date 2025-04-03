@@ -1,0 +1,8 @@
+""" requirements for the code. 
+To get all required libraries run, in bash terminal, the command : 
+
+pip install -r requirements.txt 
+
+"""
+numpy == 2.2.4
+matplotlib == 3.10
