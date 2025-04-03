@@ -10,13 +10,7 @@ def perco(n, p):
                 grille[i][j]=0
             else:
                 grille[i][j]=1
-    return grille 
-
-def visu(grille):
-
-    visu = np.zeros((n, n))
-
-
+    visu=np.zeros((n,n))
     for i in range(n):
         for j in range(n):
             if grille[i][j] == 1:
@@ -27,8 +21,10 @@ def visu(grille):
                 visu[i][j] = 0.5
 
     
-    plt.imshow(visual_grid, cmap='gray')
+    plt.imshow(visu, cmap='gray')
     plt.colorbar(label='0 = libre, 1 = fermé, 2 = visitée')
     plt.title("grille de percolation ")
     plt.show()
+    return grille 
 
+perco(5, 0.5)
