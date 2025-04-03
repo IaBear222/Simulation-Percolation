@@ -15,6 +15,11 @@ def plot_system(n, p):
             elif syst[i][j] == 2:
                 visu[i][j] = 0.5
 
-    plt.imshow(visu, cmap="grey")
+    plt.imshow(visu, cmap="Blues")
     plt.title("grille de percolation ")
     plt.show()
+
+
+"""
+Observation : à p= 0 et p= 1 il affiche tt en noir !!
+"""
