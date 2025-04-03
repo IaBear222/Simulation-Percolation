@@ -1,4 +1,4 @@
-from Main_code import *
+from random_system_generator import *
 
 
 def plot_system(n, p):
@@ -15,7 +15,6 @@ def plot_system(n, p):
             elif syst[i][j] == 2:
                 visu[i][j] = 0.5
 
-    plt.imshow(visu, cmap="gray")
-    plt.colorbar(label="0 = libre, 1 = fermé, 2 = visitée")
+    plt.imshow(visu, cmap="grey")
     plt.title("grille de percolation ")
     plt.show()
