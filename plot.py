@@ -1,9 +1,9 @@
 from random_system_generator import *
 
 
-def plot_system(n, p):
+def plot_system(syst):
 
-    syst = system(n, p)
+    n = np.size(syst, axis=0)
 
     visu = np.zeros((n, n))
     for i in range(n):
