@@ -1,0 +1,25 @@
+Ce script n'est absolument pas finalisé il est juste là pour avoir un point de départ/ une vision de ce que va être le code.
+
+
+-initialisation de la grille: deux variables "n" nb de cases et "p" proba qu'une case soit pleine
+(pas détaillé)
+
+
+-initialisation d'une liste de rangement:
+on va regarder toutes la valeurs dans la 1ere colonne si il y a des cases libres on va ranger dans notre liste de rangement
+sinon si il n'y a pas de case libre dans la 1ere colonne alors il n'y a pas percolation
+
+-on va créer une boucle sur cette liste:
+	on éxamine le 1er élèment qui a été mit dans la liste
+	si il a une valeur de 1(case pleine) ou une valeur de 2(case visité avant)
+		on retire ce premier élément de la liste et on passe au suivant
+	on attribue automatiquement la valeur 2 si elle est vide
+	si on atteint la derniere colonne 
+		on arrete car percolation
+	si la case d'en haut est vide(par rapport à l'élément qu'on est entrain d'analyser dans la liste de rangement):
+		on met la case dans la liste
+	#pareil en bas à gauche et à droite
+	une fois analysé les alentours d'une case on peut supprimer cette case de la liste de rangement /soit revient à supprimer le 1er élément de la liste(ce qui va permettre de boucler sur le 1eme element de la liste)
+
+	une fois la liste de rangement vide est qu'on a pas atteint la dernière colonne 
+		 il n'y a pas percolation
