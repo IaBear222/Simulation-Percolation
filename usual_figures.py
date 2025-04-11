@@ -1,5 +1,9 @@
 from requirements import *
 
+"""
+This file permit to create the figures of the system wanted to easily debug
+"""
+
 
 def line(n, line):
     grille = np.full((n, n), 1)

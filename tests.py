@@ -3,10 +3,10 @@ from plot import *
 from find_the_path import *
 from usual_figures import *
 
-n = 5
+n = 25
 p = 0.5
 
-syst = wall(5, 3)
+syst = system(n, p)
 the_wall(syst)
 the_line(syst)
 
