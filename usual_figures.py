@@ -5,15 +5,15 @@ This file permit to create the figures of the system wanted to easily debug
 """
 
 
-def line(n, line):
-    grille = np.full((n, n), 1)
-    for i in range(0, n):
-        grille[line, i] = 0
+def line(n, l):
+    grille = np.full((n + 2, n + 2), 1)
+    for i in range(1, n + 1):
+        grille[l, i] = 0
     return grille
 
 
 def wall(n, column):
-    grille = np.zeros((n, n))
-    for i in range(0, n):
+    grille = np.zeros((n + 2, n + 2))
+    for i in range(0, n + 2):
         grille[i, column] = 1
     return grille
