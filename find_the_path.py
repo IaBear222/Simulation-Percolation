@@ -16,8 +16,8 @@ def the_wall(syst):
     None : the function prints if there is a wall or not
 
     """
-    wall = np.sum(syst, axis=0)
-    size = np.size(syst, axis=1)
+    wall = np.sum(syst[1:-1, 1:-1], axis=0)
+    size = np.size(syst, axis=0) - 2
     if size in wall:
         print("There is no path ")
     else:
@@ -34,7 +34,8 @@ def the_line(syst):
     <<< output:
     None : the function prints if there is a line or not
     """
-    line = np.sum(syst, axis=1)
+
+    line = np.sum(syst[1:-1, 1:-1], axis=1)
 
     if 0 in line:
         print("There is a path")

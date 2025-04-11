@@ -14,7 +14,7 @@ def rdm_syst(n, p):
     plot_system(syst)
 
 
-def line_syst(n, l):
+def l_syst(n, l):
     syst = line(n, l)
     the_wall(syst)
     the_line(syst)
@@ -29,10 +29,22 @@ def wall_syst(n, column):
 
 
 """
+
 rdm_syst(n, p)
-
-line_syst(n, 10)
-
-"""
-
+l_syst(n, 10)
 wall_syst(n, 10)
+
+
+tab = np.array(
+    [
+        [0, 1, 0, 1, 0],
+        [1, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1],
+        [0, 1, 0, 0, 0],
+    ]
+)
+
+s = np.sum(tab[1:-1, 1:-1], axis=1)
+print(s)
+"""

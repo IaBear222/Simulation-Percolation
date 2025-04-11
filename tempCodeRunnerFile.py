@@ -1,1 +1,1 @@
-wall_syst(n, 10)
+l_syst(n, 10)
