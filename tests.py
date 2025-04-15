@@ -11,7 +11,7 @@ def rdm_syst(n, p):
     syst = system(n, p)
     the_wall(syst)
     the_line(syst)
-    plot_system(syst)
+    outward(syst)
 
 
 def l_syst(n, l):
@@ -28,12 +28,23 @@ def wall_syst(n, column):
     plot_system(syst)
 
 
-"""
+def outward_syst():
+    syst = outward_test()
+    the_wall(syst)
+    the_line(syst)
+    outward(syst)
+    plot_system(syst)
+
 
 rdm_syst(n, p)
+
+
+"""
+
+
 l_syst(n, 10)
 wall_syst(n, 10)
-
+outward_syst()
 
 tab = np.array(
     [

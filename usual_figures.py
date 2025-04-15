@@ -17,3 +17,16 @@ def wall(n, column):
     for i in range(0, n + 2):
         grille[i, column] = 1
     return grille
+
+
+def outward_test():
+    grille = np.zeros((50, 50))
+
+    for i in range(50):
+        for j in range(50):
+            if i == j:
+                grille[i][j] = 2
+            if i == 50 - j:
+                grille[i][j] = 1
+
+    return grille

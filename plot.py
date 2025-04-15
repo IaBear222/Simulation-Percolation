@@ -9,17 +9,17 @@ def plot_system(syst):
     for i in range(n):
         for j in range(n):
             if syst[i][j] == 1:
-                visu[i][j] = 1
-            elif syst[i][j] == 0:
                 visu[i][j] = 0
+            elif syst[i][j] == 0:
+                visu[i][j] = 255
             elif syst[i][j] == 2:
-                visu[i][j] = 0.5
+                visu[i][j] = 111
 
-    plt.imshow(visu, cmap="Blues")
+    plt.imshow(visu, cmap="hot")
     plt.title("grille de percolation ")
     plt.show()
 
 
 """
-Observation : à p= 0 et p= 1 il affiche tt en noir !!
+
 """
