@@ -3,15 +3,16 @@ from plot import *
 from find_the_path import *
 from usual_figures import *
 
-n = 25
-p = 0.5
+n = 250
+p = 0.78
 
 
 def rdm_syst(n, p):
     syst = system(n, p)
     the_wall(syst)
     the_line(syst)
-    outward(syst)
+    syst = outward(syst)
+    plot_system(syst)
 
 
 def l_syst(n, l):
@@ -32,20 +33,16 @@ def outward_syst():
     syst = outward_test()
     the_wall(syst)
     the_line(syst)
-    outward(syst)
+    syst = outward(syst)
     plot_system(syst)
 
 
 rdm_syst(n, p)
-
-
 """
-
-
 l_syst(n, 10)
 wall_syst(n, 10)
-outward_syst()
 
+outward_syst()
 tab = np.array(
     [
         [0, 1, 0, 1, 0],

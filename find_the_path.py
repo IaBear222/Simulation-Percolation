@@ -48,29 +48,54 @@ from random_system_generator import *
 
 
 def neighbors(syst, i, j):
+    """
+    this function returns the neighbors of a pixel in the system.
+
+    >>> input :
+    syst : the system to check
+
+    i : the line of the pixel
+
+    j : the column of the pixel
+
+    <<< output:
+    neighbors : the list of the neighbor's values of the pixel
+
+    """
     neighbors = []
 
-    neighbors.append((i + 1, j))
-    neighbors.append((i - 1, j))
-    neighbors.append((i, j + 1))
-    neighbors.append((i, j - 1))
+    neighbors.append(syst[i + 1, j])
+    neighbors.append(syst[i - 1, j])
+    neighbors.append(syst[i, j + 1])
+    neighbors.append(syst[i, j - 1])
 
     return neighbors
 
 
 def outward(syst):
+    """
+    this function is the first step to find if there is a path in any kind of system.
+
+    It will change the vaue of each free pixel next to matter and another free pixel to 2 in purpuse to find a pth following "walls" of matter.
+
+    >>> input :
+    syst : the system to check
+
+    <<< output:
+    another system : the system with the new values
+    """
     n = np.size(syst, axis=0) - 2
 
     for i in range(2, n + 1):
         for j in range(1, n + 1):
             neighb = neighbors(syst, i, j)
             if syst[i][j] == 0:
-                if (
-                    1 and (0 or 2) in neighb
+                if 1 in neighb and (
+                    0 in neighb or 2 in neighb
                 ):  # /!\ And et Or priorité ??? ==> option : 2 boucles if
                     syst[i][j] = 2
 
-    plot_system(syst)
+    return syst
 
 
 def backward(syst):
