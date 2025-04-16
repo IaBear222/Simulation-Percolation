@@ -3,7 +3,7 @@ from random_system_generator import *
 cm = Colormap("seaborn:tab20b")
 
 
-def plot_system(syst):
+def plot_system(syst, p):
 
     n = np.size(syst, axis=0)
 
@@ -21,7 +21,11 @@ def plot_system(syst):
                 visu[i][j] = 120
 
     plt.imshow(visu, cmap="gist_earth")
-    plt.title("grille de percolation ")
+    plt.title(
+        f"grille de percolation pour {n-2} particules (p={p})",
+        fontname="Times New Roman",
+        fontstyle="italic",
+    )
     plt.show()
 
 

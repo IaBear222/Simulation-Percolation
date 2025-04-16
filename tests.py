@@ -3,8 +3,8 @@ from plot import *
 from find_the_path import *
 from usual_figures import *
 
-n = 25
-p = 0.2
+n = 100
+p = 0.5
 
 
 def rdm_syst(n, p):
@@ -13,7 +13,8 @@ def rdm_syst(n, p):
     the_line(syst)
     syst = outward(syst)
     _, syst = backward(syst)
-    plot_system(syst)
+
+    plot_system(syst, p)
 
 
 def l_syst(n, l):
@@ -44,10 +45,11 @@ def test_color(nb):
 
 
 rdm_syst(n, p)
+
 """
 l_syst(n, 10)
-wall_syst(n, 10)
 
+wall_syst(n, 10)
 outward_syst()
 test_color(0)
 

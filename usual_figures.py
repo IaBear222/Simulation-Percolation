@@ -15,7 +15,7 @@ def line(n, l):
 def wall(n, column):
     grille = np.zeros((n + 2, n + 2))
     for i in range(0, n + 2):
-        grille[i, column] = 1
+        grille[i][column] = 1
     return grille
 
 
