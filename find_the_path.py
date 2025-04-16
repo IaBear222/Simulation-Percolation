@@ -105,7 +105,7 @@ def backward(syst):
     """
     The second step to find a path in the system.
 
-    By following pixels in decroissant order, it will check if there is a marked pixel (2) linked to the exit of the system.
+    By following pixels in decroissant order then in croissant order ( by the y axis), it will check if there is a marked pixel (2) linked to the exit of the system.
     If there is, it will change the value of the marked pixel to 3.
 
     Finally, if a path pixel (3) is measered in the first column of the system, it means that there is a continuous path from both sides of the system.
@@ -123,6 +123,9 @@ def backward(syst):
         if syst[k][-2] == 0 or 2:
             syst[k][-2] = 3
 
+    """
+    from bottom to top scan
+    """
     for j in range(n, 0, -1):
         for i in range(n, 0, -1):
 
@@ -132,6 +135,8 @@ def backward(syst):
                 if 3 in neighb and (2 in neighb or 3 in neighb) or neighb.count(3) >= 2:
                     syst[i][j] = 3
 
+    """ from top to bottom scan
+    """
     for j in range(n, 0, -1):
         for i in range(0, n + 1):
 
