@@ -1,1 +1,1 @@
-rdm_syst(n, p)
+l_syst(n, 10)

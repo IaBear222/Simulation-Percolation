@@ -120,7 +120,7 @@ def backward(syst):
     n = np.size(syst, axis=0) - 2
 
     for k in range(1, n + 1):
-        if syst[k][-2] == 0 or 2:
+        if syst[k, -2] == 0 or syst[k, -2] == 2:
             syst[k][-2] = 3
 
     """
@@ -143,10 +143,46 @@ def backward(syst):
             neighb = neighbors(syst, i, j)
 
             if syst[i][j] == 2 or syst[i][j] == 0:
+
                 if 3 in neighb and (2 in neighb or 3 in neighb) or neighb.count(3) >= 2:
                     syst[i][j] = 3
 
     if 3 in syst[:, 1]:
+        print("There is a path")
+        return 1, syst
+    else:
+        print("There is no path")
+        return 0, syst
+
+
+def alt(syst):
+    n = np.size(syst, axis=0) - 2
+    syst[-1, -1] = (
+        0  ## this prevent not to have free pixel at the end of the function, to make the colormap working well
+    )
+
+    for k in range(0, n + 2):
+        if syst[k][1] == 0:
+            syst[k][1] = 2
+
+    for j in range(2, n + 1):
+        for i in range(0, n + 1):
+
+            neighb = neighbors(syst, i, j)
+
+            if syst[i][j] == 0:
+                if 2 in neighb:
+                    syst[i][j] = 2
+
+    for j in range(0, n + 1):
+        for i in range(n, 0, -1):
+            neighb = neighbors(syst, i, j)
+
+            if syst[i][j] == 0:
+                if 2 in neighb:
+                    syst[i][j] = 2
+
+    if 2 in syst[:, -2]:
         print("There is a path")
         return 1, syst
     else:
