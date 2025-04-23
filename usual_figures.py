@@ -12,6 +12,13 @@ def line(n, l):
     return grille
 
 
+def anti_line(n, l):
+    grille = np.full((n + 2, n + 2), 0)
+    for i in range(0, n + 2):
+        grille[l, i] = 1
+    return grille
+
+
 def wall(n, column):
     grille = np.zeros((n + 2, n + 2))
     for i in range(0, n + 2):

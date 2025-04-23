@@ -46,14 +46,15 @@ def test_color(nb):
     plot_system(syst)
 
 
-def alt_syst(n, p):
-    syst = system(n, p)
+def alt_syst(syst, n, p):
     _, syst = alt(syst)
     plot_system(syst, p)
 
 
+alt_syst(anti_line(n, 5), n, p)
+
 """
-alt_syst(n, p)
+
 
 rdm_syst(n, p)
 
