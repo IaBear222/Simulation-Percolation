@@ -3,55 +3,17 @@ from plot import *
 from find_the_path import *
 from usual_figures import *
 
-n = 10
-p = 0.25
+n = 300
+p = 0.3
 
 
-def rdm_syst(n, p):
-    syst = system(n, p)
-    the_wall(syst)
-    the_line(syst)
-    syst = outward(syst)
-    _, syst = backward(syst)
 
-    plot_system(syst, p)
+syst = system(n, p)
+the_wall(syst)
+the_line(syst)
+alt(syst)
 
-
-def l_syst(n, l):
-    syst = line(n, l)
-
-    _, syst = alt(syst)
-
-    plot_system(syst, p)
-
-
-def wall_syst(n, column):
-    syst = wall(n, column)
-    the_wall(syst)
-    the_line(syst)
-    plot_system(syst)
-
-
-def outward_syst():
-    syst = outward_test()
-    the_wall(syst)
-    the_line(syst)
-    syst = outward(syst)
-    plot_system(syst)
-
-
-def test_color(nb):
-    """ """
-    syst = np.full((n, n), nb)
-    plot_system(syst)
-
-
-def alt_syst(n, p):
-    syst = system(n, p)
-    _, syst = alt(syst)
-    plot_system(syst, p)
-
-
+plot_system(syst,p)
 """
 alt_syst(n, p)
 
