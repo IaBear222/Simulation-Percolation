@@ -7,13 +7,39 @@ n = 300
 p = 0.3
 
 
-
+"""
+#run normal system
 syst = system(n, p)
 the_wall(syst)
 the_line(syst)
 alt(syst)
-
 plot_system(syst,p)
+
+
+#test wall
+mur= wall(n,6)
+the_wall(mur)
+the_line(mur)
+
+alt(mur)
+
+plot_system(mur,p)
+
+
+#test line
+ligne= line(n, 4)
+the_wall(ligne)
+the_line(ligne)
+
+alt(ligne)
+
+plot_system(ligne,p)
+
+"""
+
+
+
+
 """
 alt_syst(n, p)
 
