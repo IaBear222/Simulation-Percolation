@@ -69,6 +69,7 @@ def neighbors(syst, i, j):
     neighbors.append(syst[i, j + 1])
     neighbors.append(syst[i, j - 1])
     """
+    # au lieu d'enregistrer la valeur des cases voisines on va simplement enregistrer leur position
     neighbors.append((i + 1, j))
     neighbors.append((i , j + 1))
     neighbors.append((i - 1, j))
@@ -120,23 +121,27 @@ def alt(syst):
                 if 2 in neighb:
                     syst[i][j] = 2
     """
-    stack = []
+    stack = [] #création d'une liste vide qui va nous permettre de stocker toutes les positions voisines qui seront vide
     
-    
+    #précédemment on a changé la valeur de toutes les cases vides de la premieres colonne par 2, donc avec ce bloc on va stocker toutes ces valeurs pour pouvoir regarder leurs voisins dans la boucle d'après
     for i in range(n):
         if syst[i, 1] == 2:
             stack.append((i, 1))
 
-    
+    #La boucle permet dans un premier temps de regarder tous les voisins libre de la premiere colonne( à partir d'une case visité) puis par la suite continuer le calcul pour les voisins des voisins ect..
     while stack:
-        i, j = stack.pop(0)  #retire le premier élément de la liste
+        i, j = stack.pop(0)  #retire le premier élément de la liste c'est à dire l'élément qu'on regarde actuellement (la boucle while commence par le 1er élement)
         
         
-        for x, y in neighbors(syst, i, j):
-            if syst[x, y] == 0:
-                syst[x, y] = 2
-                stack.append((x, y))
-    
+        for x, y in neighbors(syst, i, j): #retourne une liste de coordonnées (x, y) des voisins du pixel situé à la position (i, j)
+            if syst[x, y] == 0: # vérifie si les cases à la position (x,y) ont une valeur de 0
+                syst[x, y] = 2 #si c'est le cas ils seront considérés comme visité
+                stack.append((x, y)) #donc ces valeurs seront ajoutées dans la liste pour pouvoir regarder leurs voisins à eux
+    """
+    Cette boucle parcourt tous les voisins du pixel actuel (i, j). Pour chaque voisin qui n'a pas encore été marqué, elle le marque
+    avec la valeur 2 et l'ajoute à la file d'attente. Ce qui permet propager les cases visitées à travers le syst de manière continue, 
+    en explorant tous les chemins possibles simultanément dans les quatre directions
+    """
     if 2 in syst[:, -2]:
         print("There is a path")
         return 1, syst
