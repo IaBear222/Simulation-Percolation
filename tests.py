@@ -50,6 +50,24 @@ def alt_syst(syst, n, p):
     _, syst = alt(syst)
     plot_system(syst, p)
 
+def run_boucle(n, p, repet):
+    compteur = 0
+
+    for _ in range(repet):
+        syst = system(n, p)
+        path, syst = alt(syst)  
+        if path == 1:
+            compteur += 1
+        plot_system(syst, p)
+
+    
+    Taux = 100 * compteur / repet   
+
+
+    print(f"\nNombre de chemins trouvés : {compteur} sur {repet}")
+    print(f"Taux de percolation : {Taux:.2f}%")
+
+run_boucle(n,p,5)
 
 alt_syst(anti_line(n, 5), n, p)
 
