@@ -44,9 +44,6 @@ def the_line(syst):
         print("There no direct path")
 
 
-from random_system_generator import *
-
-
 def neighbors(syst, i, j):
     """
     this function returns the neighbors of a pixel in the system.
@@ -70,7 +67,6 @@ def neighbors(syst, i, j):
     neighbors.append(syst[i, j - 1])
 
     return neighbors
-
 
 
 def alt(syst):

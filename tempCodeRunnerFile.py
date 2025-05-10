@@ -1,1 +1,0 @@
-rdm_syst(n, p)
