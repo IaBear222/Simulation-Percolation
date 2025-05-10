@@ -1,4 +1,3 @@
-from random_system_generator import *
 from plot import *
 
 """
@@ -97,8 +96,6 @@ def alt(syst):
                     syst[i][j] = 2
 
     if 2 in syst[:, -2]:
-        print("There is a path")
         return 1, syst
     else:
-        print("There is no path")
         return 0, syst
