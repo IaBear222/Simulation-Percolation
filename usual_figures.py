@@ -21,6 +21,10 @@ def anti_line(n, l):
 
 def wall(n, column):
     grille = np.zeros((n + 2, n + 2))
+    grille[0, :] = 1
+    grille[-1, :] = 1
+    grille[:, 0] = 1
+    grille[:, -1] = 1
     for i in range(0, n + 2):
         grille[i][column] = 1
     return grille
@@ -28,7 +32,10 @@ def wall(n, column):
 
 def outward_test():
     grille = np.zeros((50, 50))
-
+    grille[0, :] = 1
+    grille[-1, :] = 1
+    grille[:, 0] = 1
+    grille[:, -1] = 1
     for i in range(50):
         for j in range(50):
             if i == j:
