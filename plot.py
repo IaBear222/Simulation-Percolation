@@ -29,6 +29,3 @@ def plot_system(syst, p):
     plt.show()
 
 
-"""
-
-"""

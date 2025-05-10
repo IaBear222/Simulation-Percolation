@@ -40,7 +40,7 @@ def outward_test(n):
         for j in range(1, n+1):
             if i == j:
                 grille[i][j] = 2
-            if i == 50 - j:
+            if i == n - j:
                 grille[i][j] = 1
 
     return grille
