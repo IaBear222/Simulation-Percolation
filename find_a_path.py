@@ -9,10 +9,10 @@ def the_wall(syst):
     """
     this function checks if there is a wall of matter in the  wich makes the system not percolate
 
-    >>> input :
+    input :
     syst : the system to check
 
-    <<< output:
+    output:
     None : the function prints if there is a wall or not
 
     """
@@ -28,36 +28,35 @@ def the_line(syst):
     """
     this function checks if there is a line of matter in the  which makes the system percolate
 
-    >>> input :
-    syst : the system to check
+    input :
+        syst : the system to check
 
-    <<< output:
-    None : the function prints if there is a line or not
+    output:
+        None : the function prints if there is a line or not
     """
 
     line = np.sum(syst[1:-1, 1:-1], axis=1)
 
     if 0 in line:
-        print("There is a path")
-    else:
-        print("There no direct path")
+        return 1, syst
 
 
 def neighbors(syst, i, j):
     """
-    this function returns the neighbors of a pixel in the system.
+    This function index neighbors' values of a pixel in the system.
 
-    >>> input :
-    syst : the system to check
+    input :
+        syst : the system to check
 
-    i : the line of the pixel
+        i : the line of the pixel
 
-    j : the column of the pixel
+        j : the column of the pixel
 
-    <<< output:
-    neighbors : the list of the neighbor's values of the pixel
+    output:
+        neighbors : the list of the neighbors' values of the pixel
 
     """
+
     neighbors = []
 
     neighbors.append(syst[i + 1, j])
@@ -68,7 +67,17 @@ def neighbors(syst, i, j):
     return neighbors
 
 
-def alt(syst):
+def perco_finder(syst):
+    """
+    This function finds a path in the system to determine if there is percolation or not.
+    It uses the neighbors function to check if there is a path in the system.
+    input :
+        syst : the system to check
+
+    output:
+        path : 1 if there is a path, 0 if there is no path
+        syst : the system with the path
+    """
     n = np.size(syst, axis=0) - 2
     syst[-1, -1] = (
         0  ## this prevent not to have free pixel at the end of the function, to make the colormap working well
