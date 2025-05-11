@@ -71,6 +71,7 @@ def perco_finder(syst):
     """
     This function finds a path in the system to determine if there is percolation or not.
     It uses the neighbors function to check if there is a path in the system.
+
     input :
         syst : the system to check
 
