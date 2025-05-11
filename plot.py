@@ -28,9 +28,8 @@ def plot_system(syst, p):
             elif syst[i][j] == 2:  # check if the pixel is a path
                 visu[i][j] = 50
 
-    plt.imshow(
-        visu, cmap="gist_earth"
-    )  # image of the system with the different values of the pixels
+    # Generating the plot of the system with the different values of the pixels
+    plt.imshow(visu, cmap="gist_earth")
     plt.title(
         f"grille de percolation pour {n-2} particules (p={p})",
         fontname="Times New Roman",

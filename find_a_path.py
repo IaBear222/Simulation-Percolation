@@ -38,7 +38,9 @@ def the_line(syst):
     line = np.sum(syst[1:-1, 1:-1], axis=1)
 
     if 0 in line:
-        return 1, syst
+        return "ther is a path "
+    else:
+        return "there is no evident path "
 
 
 def neighbors(syst, i, j):
@@ -59,10 +61,10 @@ def neighbors(syst, i, j):
 
     neighbors = []
 
-    neighbors.append(syst[i + 1, j])
-    neighbors.append(syst[i - 1, j])
-    neighbors.append(syst[i, j + 1])
-    neighbors.append(syst[i, j - 1])
+    neighbors.append(syst[i + 1, j])  # lower neighbor
+    neighbors.append(syst[i - 1, j])  # upper neighbor
+    neighbors.append(syst[i, j + 1])  # right neighbor
+    neighbors.append(syst[i, j - 1])  # left neighbor
 
     return neighbors
 
@@ -79,23 +81,29 @@ def perco_finder(syst):
         path : 1 if there is a path, 0 if there is no path
         syst : the system with the path
     """
-    n = np.size(syst, axis=0) - 2
-    syst[-1, -1] = (
-        0  ## this prevent not to have free pixel at the end of the function, to make the colormap working well
-    )
 
+    ### preventing not to have free pixel at the end of the function, to make the colormap working well ###
+    n = np.size(syst, axis=0) - 2
+    syst[-1, -1] = 0
+
+    ###initialize the first line ###
     for k in range(0, n + 2):
         if syst[k][1] == 0:
             syst[k][1] = 2
 
+    ### computing first in increasing direction ###
     for j in range(2, n + 1):
         for i in range(0, n + 1):
 
-            neighb = neighbors(syst, i, j)
+            neighb = neighbors(syst, i, j)  # get the neighbors' values of the pixel
 
             if syst[i][j] == 0:
                 if 2 in neighb:
-                    syst[i][j] = 2
+                    syst[i][
+                        j
+                    ] = 2  # a possible path unit should be preceding by anotrher one
+
+    ### computing then in decreasing direction to prevent mistakes due to the order of operations ###
 
     for j in range(0, n + 1):
         for i in range(n, 0, -1):
@@ -105,7 +113,9 @@ def perco_finder(syst):
                 if 2 in neighb:
                     syst[i][j] = 2
 
+    ### checking if the last column is directly connected to the first column ###
     if 2 in syst[:, -2]:
         return 1, syst
+
     else:
         return 0, syst
