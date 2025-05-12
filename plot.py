@@ -31,7 +31,7 @@ def plot_system(syst, p):
     # Generating the plot of the system with the different values of the pixels
     plt.imshow(visu, cmap="gist_earth")
     plt.title(
-        f"grille de percolation pour {n-2} particules (p={p})",
+        f"grille de percolation pour {n-2}*{n-2} particules (p={p})",
         fontname="Times New Roman",
         fontstyle="italic",
     )
