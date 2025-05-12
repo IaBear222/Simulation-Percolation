@@ -29,7 +29,7 @@ def wall_syst(n, column):
     syst = wall(n, column)
     the_wall(syst)
     the_line(syst)
-    plot_system(syst)
+    plot_system(syst,p)
 
 
 def outward_syst():
@@ -37,13 +37,13 @@ def outward_syst():
     the_wall(syst)
     the_line(syst)
     syst = outward(syst)
-    plot_system(syst)
+    plot_system(syst,p)
 
 
 def test_color(nb):
     """ """
     syst = np.full((n, n), nb)
-    plot_system(syst)
+    plot_system(syst,p)
 
 
 def alt_syst(syst, n, p):
